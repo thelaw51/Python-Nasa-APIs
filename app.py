@@ -2,11 +2,20 @@ import requests
 from PIL import Image
 import json
 from io import BytesIO
+import io
+
+import io
+
+with open("api_file.bin", encoding="utf-8") as binary_file:
+    # Read the whole file at once
+    api_key = binary_file.read()
+
+str(api_key)
+
+url = "https://api.nasa.gov/planetary/apod?api_key={}"
 
 
-url = "https://api.nasa.gov/planetary/apod?api_key=WMBG5Ug6uHBGlkAwsjaUJg1DqMRznESghooSqOW1"
-
-result = requests.get(url)
+result = requests.get(url.format(api_key))
 if result.status_code == 200:
         json= result.json()
         url = json["url"]
