@@ -17,6 +17,7 @@ url = "https://api.nasa.gov/planetary/apod?api_key={}"
 
 result = requests.get(url.format(api_key))
 if result.status_code == 200:
+        print("Test test testy test test")
         json= result.json()
         url = json["url"]
         imageURLResponse = requests.get(url)
